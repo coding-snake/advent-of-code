@@ -1,51 +1,27 @@
 #include "console_tools.h"
 
 #include <iostream>
-#include <fstream>
+#include <limits>
+#include <ios>
 
-
-int main()
+namespace Console_tools
 {
-	std::ifstream file;
-
-	file.open("day_1_input.txt");
-	if (!file.is_open())
+	void wait_for_enter()
 	{
-		std::cerr << "Failed to open a file\n";
-		return 1;
+		char key{};
+
+		do
+		{
+			std::cout << "Press enter to end program...\n";
+
+			std::cin.get(key);
+
+			if (key != '\n')
+			{
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+
+		} while (key != '\n');
+
 	}
-
-	constexpr int size{ 10000 };
-
-	char line[size]{};
-	file.getline(line, size);
-
-	int level{ 0 };
-	int basement{ -1 };
-
-	for (int i{ 0 }; line[i] != '\0'; ++i)
-	{
-		if (line[i] == '(')
-		{
-			++level;
-		}
-		else
-		{
-			--level;
-		}
-
-		if ((basement == -1) && (level == basement))
-		{
-			basement = { i + 1 };
-		}
-	}
-
-	std::cout << "Correct floor was on level " << level << ", Santa entered basement at character position " << basement << '\n';
-	file.close();
-
-	char key{};
-
-	Console_tools::wait_for_enter();
-
-	return 0;
 }
