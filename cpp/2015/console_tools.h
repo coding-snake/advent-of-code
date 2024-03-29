@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Console
+namespace Console_tools
 {
 	void wait_for_enter();
 }

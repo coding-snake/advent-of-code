@@ -1,10 +1,10 @@
-#include "utilities.h"
+#include "console_tools.h"
 
 #include <iostream>
 #include <limits>
 #include <ios>
 
-namespace Console
+namespace Console_tools
 {
 	void wait_for_enter()
 	{
@@ -22,5 +22,6 @@ namespace Console
 			}
 
 		} while (key != '\n');
+
 	}
 }

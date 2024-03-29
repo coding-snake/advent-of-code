@@ -1,22 +1,24 @@
-#include "utilities.h"
+#include "console_tools.h"
+
 #include <iostream>
 #include <fstream>
 
+
 int main()
 {
-	constexpr int size{ 10'000 };
+	std::ifstream file;
 
-	std::ifstream input;
-
-	input.open("day_1_input.txt");
-	if (!input.is_open())
+	file.open("day_1_input.txt");
+	if (!file.is_open())
 	{
-		std::cerr << "Faile to open a file\n";
+		std::cerr << "Failed to open a file\n";
 		return 1;
 	}
 
+	constexpr int size{ 10000 };
+
 	char line[size]{};
-	input.getline(line, size);
+	file.getline(line, size);
 
 	int level{ 0 };
 	int basement{ -1 };
@@ -39,10 +41,11 @@ int main()
 	}
 
 	std::cout << "Correct floor was on level " << level << ", Santa entered basement at character position " << basement << '\n';
-	input.close();
+	file.close();
 
+	char key{};
 
-	Console::wait_for_enter();
+	Console_tools::wait_for_enter();
 
 	return 0;
 }
