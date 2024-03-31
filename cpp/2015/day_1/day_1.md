@@ -1,15 +1,36 @@
-#include "console_tools.h"
-
+### Day 1, 2015
+```cpp
 #include <iostream>
+#include <limits>
+#include <ios>
+
 #include <fstream>
 
+void wait_for_enter()
+{
+	char key{};
+
+	do
+	{
+		std::cout << "Press enter to end program...\n";
+
+		std::cin.get(key);
+
+		if (key != '\n')
+		{
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+
+	} while (key != '\n');
+
+}
 
 int main()
 {
 	// opening file
 	std::ifstream file;
 
-	file.open("day_1_input.txt");
+	file.open("input_day_1.txt");
 	if (!file.is_open())
 	{
 		std::cerr << "Failed to open a file\n";
@@ -45,11 +66,11 @@ int main()
 
 	// answer
 	std::cout << "Correct floor was on level " << level << ", Santa entered basement at character position " << basement << '\n';
-	
+
 	// closing file
 	file.close();
 
-	Console_tools::wait_for_enter();
-
+	wait_for_enter();
 	return 0;
 }
+```
