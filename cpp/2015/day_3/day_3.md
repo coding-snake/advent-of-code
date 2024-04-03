@@ -133,7 +133,7 @@ int main()
 
 	deallocate_memory_of_2d_array(grid, size);
 
-	std::cout << "The ammount of houses that received at least one present ammounts to " << houses << '\n';
+	std::cout << "The number of houses that received at least one present ammounts to " << houses << '\n';
 	file.close();
 
 
@@ -307,7 +307,7 @@ int main()
 
 	deallocate_memory_of_2d_array(grid, size);
 
-	std::cout << "The ammount of houses that received at least one present ammounts to " << houses << '\n';
+	std::cout << "The number of houses that received at least one present ammounts to " << houses << '\n';
 	file.close();
 
 
